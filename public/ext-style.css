@@ -1,0 +1,23 @@
+.faq {
+    overflow: hidden;
+    text-align: center;
+}
+.faq:before,
+.faq:after {
+    background-color: #E30B5D;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 10%;
+}
+.faq:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.faq:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
