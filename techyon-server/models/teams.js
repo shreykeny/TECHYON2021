@@ -1,13 +1,5 @@
 const mongoose =require('mongoose')
 
-const member = new mongoose.Schema({
-    name:{  
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'members',
-    required: true 
-    }
-});
-
 const TeamSchema=new mongoose.Schema({
     teamName:{
         type: String,
@@ -15,7 +7,7 @@ const TeamSchema=new mongoose.Schema({
         required: true,
         min: 6
     },
-    members:[member],
+    members:Array,
     eventId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'events',

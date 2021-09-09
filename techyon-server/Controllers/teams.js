@@ -1,5 +1,8 @@
 const Team = require('../models/teams.js');
 const Member = require('../models/members');
+const Teams = require('../models/teams');
+const { data } = require('autoprefixer');
+const Event = require("../models/events")
 
 exports.addTeam = async (req, res) => {
   var obj = { ...req.body };
@@ -8,8 +11,7 @@ exports.addTeam = async (req, res) => {
     emails,
     departments,
     phoneNos = [];
-  let memberList = [];
-  console.log(req.body);
+  let memberIds = [];
   for (var key in obj) {
     var val = obj[key];
     if (typeof val === 'object') {
@@ -19,26 +21,46 @@ exports.addTeam = async (req, res) => {
       else if (key === 'email') emails = val;
     }
   }
-  try {
+var memberList=[]
     for (var i = 0; i < members; i++) {
-      const member = new Member({
+      const member = {
         name: names[i],
         email: emails[i],
         department: departments[i],
         phoneNo: phoneNos[i],
-      });
-
-      const savedMember = await member.save();
-      console.log(savedMember);
+      }
+      memberList.push(member)
     }
-  } catch (err) {
-    err.statusCode = 400;
-    next(err);
-  }
 
-  // const team = new Team({
-  //     teamName: req.body.teamName,
-  //     address: req.body.address,
-  //     age: req.body.age,
-  // })
+
+  await Member.insertMany(memberList).then(function(datas,err){
+      console.log(datas)  // Success
+      datas.forEach(element => {
+       memberIds.push(element._id)
+      });
+      
+  }).catch(function(error){
+      console.log(error)      // Failure
+  });
+ 
+
+const eventId= await this.getEventById(req.body.eventName)
+
+const team = new Teams({
+  teamName: req.body.teamName,
+  members: memberIds,
+  eventId:eventId
+})
+ 
+const savedTeam= team.save()
+  res.sendStatus(200)
 };
+
+exports.getEventById =async (eventName) =>  {
+  const event = await Event.findOne({
+    "eventName": eventName
+})
+return event._id
+}
+
+

@@ -20,7 +20,6 @@ const MemberSchema=new mongoose.Schema({
         required: true,
         min: 6
     },
-    
     } ,{
         timestamps: true
     }
