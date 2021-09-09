@@ -17,6 +17,8 @@
 const Admin = require('../models/admin');
 const bcrypt = require('bcryptjs');
 const { reset } = require('nodemon');
+const jwt = require('jsonwebtoken');
+const admin = require('../models/admin');
 
 exports.signup = (req, res, next) => {
   const { userId, password } = req.body;
@@ -46,4 +48,36 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   const { userId, password } = req.body;
+  let loadedAdmin;
+  Admin.findOne({ userId: userId })
+    .then((admin) => {
+      if (!admin) {
+        const error = new Error('UserId did not match!');
+        error.statusCode = 401;
+        throw error;
+      }
+      loadedAdmin = admin;
+      return bcrypt.compare(password, admin.password);
+    })
+    .then((isEqual) => {
+      if (!isEqual) {
+        const error = new Error('Incorrect password!');
+        error.statusCode = 401;
+        throw error;
+      }
+      const token = jwt.sign(
+        {
+          userId: admin.userId,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: '20m' }
+      );
+      res.status(200).json({ token: token, userId: loadedAdmin.userId });
+    })
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };
