@@ -10,10 +10,10 @@ const MemberSchema=new mongoose.Schema({
         required: true,
         min: 8
     },
-    phoneNo:{
+    year:{
         type: Number,
         required: true,
-        min: 6
+        max:1
     },
     position:{
         type: String,
@@ -22,7 +22,16 @@ const MemberSchema=new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true,
+        required: function() {
+            return this.position === "Solo"
+        },
+        min: 6
+    },
+    phoneNo:{
+        type: Number,
+        required: function() {
+            return this.position === "Solo"
+        },
         min: 6
     },
     eventId:{

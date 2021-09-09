@@ -8,7 +8,11 @@ const TeamSchema=new mongoose.Schema({
         min: 6
     },
     members:Array,
-    
+    college:{
+        type: String,
+        default: "PCCE",
+        enum: ["PCCE","DBCE", "NIT","GEC","RIT","CHOWGULE"]
+    },
     eventId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Events',
