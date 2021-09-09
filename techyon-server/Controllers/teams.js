@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
 const {getEventByName,checkEventTypeIsSolo,mapNamesFromReqObj} = require("../common")
 
 exports.addTeam = async (req, res) => {
-
+  
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -16,12 +16,11 @@ exports.addTeam = async (req, res) => {
           errors: errors.array()
       });
   }
+  return res.sendStatus(200)
   var obj = { ...req.body };
   const members = parseInt(req.body.members);
   const names =mapNamesFromReqObj(obj)
   let memberIds = [];
-  
-  return
 var memberList=[]
 let member={}
 

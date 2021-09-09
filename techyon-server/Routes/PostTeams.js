@@ -15,7 +15,8 @@ router.post("/add",
     }),
     body("members").custom(membersValidate),
     checkEventExists,
-    checkDuplicateTeamName
+    checkDuplicateTeamName,
+    checkIfMemberIsRegistered
 ], 
 addTeam)
 

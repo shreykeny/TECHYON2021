@@ -1,3 +1,5 @@
+const Event =require("./models/events")
+
 exports.mapNamesFromReqObj = (obj)=> {
     var names
     for (var key in obj) {
