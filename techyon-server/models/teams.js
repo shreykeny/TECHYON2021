@@ -8,11 +8,11 @@ const TeamSchema=new mongoose.Schema({
         min: 6
     },
     members:Array,
+    
     eventId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'events',
+        ref: 'Events',
         required: true,
-        unique: true
     },
     } ,{
         timestamps: true

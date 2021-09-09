@@ -15,11 +15,21 @@ const MemberSchema=new mongoose.Schema({
         required: true,
         min: 6
     },
+    position:{
+        type: String,
+        default: "Solo",
+        enum: ["Leader","Member", "Solo"]
+    },
     email:{
         type: String,
         required: true,
         min: 6
     },
+    eventId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Events',
+        required: true,
+    }
     } ,{
         timestamps: true
     }
