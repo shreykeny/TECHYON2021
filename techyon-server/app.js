@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const public = require('./Routes/public');
 dotenv.config();
 var bodyParser = require('body-parser');
 
+// const public = require('./Routes/public');
 const teams = require('./Routes/PostTeams');
 const events = require('./Routes/PostEvents');
+const admin = require('./Routes/Admin');
 //connect to DB
 mongoose.connect(
   process.env.DB_CONNECT,
@@ -24,7 +25,7 @@ app.use(bodyParser.urlencoded());
 
 app.use('/event', events);
 app.use('/team', teams);
-app.use('/', public);
+app.use('/admin', admin);
 
 app.listen(3000, () => {
   console.log('app is running ');
