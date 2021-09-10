@@ -7,10 +7,10 @@ router.put('/signup', adminController.signup);
 router.post('/login', adminController.login);
 router.get('/getTeams', auth, adminController.getTeams);
 router.get('/getEvents', auth, adminController.getEvents);
-router.get('/getMembers', auth, adminController.getMembers);
+router.get('/getMembers', adminController.getMembers);
 router.get(
   '/getMembers/:eventName',
-  auth,
+
   adminController.getAllMembersForEvent
 );
 router.get('/getTeams/:eventName', adminController.getAllTeamsForEvent);

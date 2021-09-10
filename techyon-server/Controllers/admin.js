@@ -122,5 +122,15 @@ exports.getAllTeamsForEvent = (req, res) => {
   });
 };
 exports.getAllMembersForEvent = (req, res) => {
-  res.json('hello');
+  const eventName = req.params.eventName;
+  Events.findOne({ eventName: eventName }).then((event) => {
+    Members.find({ eventId: event._id })
+      .populate('eventId')
+      .exec((err, doc) => {
+        if (err) {
+          return console.error(err);
+        }
+        res.json({ teams: doc });
+      });
+  });
 };
