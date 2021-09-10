@@ -1,26 +1,13 @@
-// const dirs=__dirname.split("/")
-// var root=""
-// dirs.forEach((element,index)=>{
-//     if(index+1 != dirs.length)
-//         root+= element+"/"
-// })
-// const dashboard=root+"public/html-dashboard-page/dashboard.html"
-// const login=root +"public/html-login-page/login.html"
-
-// exports.renderDashboard = (req, res) => {
-//     res.sendFile(dashboard)
-// };
-// exports.renderLogin = (req, res) => {
-//     res.sendFile(login)
-// };
-
 const Admin = require('../models/admin');
 const Teams = require('../models/teams');
 const Events = require('../models/events');
 const Members = require('../models/members');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const teams = require('../models/teams');
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
+const path = require('path');
+var pdf = require('html-pdf-node');
 
 exports.signup = (req, res, next) => {
   const { userId, password } = req.body;
@@ -162,4 +149,57 @@ exports.getAllMembersForEvent = async (req, res, next) => {
       next(err);
     }
   }
+};
+
+//Trial route
+
+exports.createPdf = async (req, res, next) => {
+  const events = await Events.find();
+  const teams = await Teams.find();
+
+  const name = 'Amar';
+  let options = { format: 'A4' };
+  let file = {
+    content: `<h1>Welcome to html-pdf-node</h1>
+  <h2>${teams.map((team) => team.teamName)}</h2>
+  <h2>${events.map((event) => event.eventName)}</h2>
+  `,
+  };
+  const pdfFile = await pdf.generatePdf(file, options);
+  res.setHeader('Content-Type', 'application/pdf');
+  // res.setHeader(
+  //   'Content-Disposition',
+  //   'inline; filename =" ' + 'TrialFile' + '"'
+  // );
+
+  res.send(pdfFile);
+
+  // const invoicePath = path.join('data', 'invoices', 'trialFile');
+  // const pdfDoc = new PDFDocument();
+  // res.setHeader('Content-Type', 'application/pdf');
+  // res.setHeader(
+  //   'Content-Disposition',
+  //   'inline; filename =" ' + 'TrialFile' + '"'
+  // );
+  // pdfDoc.pipe(fs.createWriteStream(invoicePath));
+  // pdfDoc.pipe(res);
+  // pdfDoc.fontSize(30).text('Registered Teams', {
+  //   underline: true,
+  // });
+  // pdfDoc.text('----------------------------------------------');
+
+  // events.forEach((event) => {
+  //   console.log(event.eventName);
+  //   pdfDoc.fontSize(25).text(event.eventName);
+  // });
+  // teams.forEach((team) => {
+  //   console.log(team.teamName);
+  //   pdfDoc.fontSize(25).text(team.teamName);
+  // });
+
+  // pdfDoc.fontSize(14).text('Amar' + ' - ' + 'Narute' + ' x ' + '$' + '32');
+  // pdfDoc.text('---');
+  // pdfDoc.fontSize(20).text('Total Price: $20');
+
+  // pdfDoc.end();
 };

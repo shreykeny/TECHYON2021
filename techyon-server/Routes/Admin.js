@@ -15,5 +15,6 @@ router.get(
   adminController.getAllMembersForEvent
 );
 router.get('/getTeams/:eventName', auth, adminController.getAllTeamsForEvent);
+router.get('/getpdf', adminController.createPdf);
 
 module.exports = router;
