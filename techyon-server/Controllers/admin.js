@@ -48,89 +48,106 @@ exports.signup = (req, res, next) => {
     });
 };
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
   const { userId, password } = req.body;
   let loadedAdmin;
-  Admin.findOne({ userId: userId })
-    .then((admin) => {
-      if (!admin) {
-        const error = new Error('UserId did not match!');
-        error.statusCode = 401;
-        throw error;
-      }
-      loadedAdmin = admin;
-      return bcrypt.compare(password, admin.password);
-    })
-    .then((isEqual) => {
-      if (!isEqual) {
-        const error = new Error('Incorrect password!');
-        error.statusCode = 401;
-        throw error;
-      }
-      const token = jwt.sign(
-        {
-          userId: admin.userId,
-        },
-        process.env.JWT_SECRET,
-        { expiresIn: '20m' }
-      );
-      res.status(200).json({ token: token, userId: loadedAdmin.userId });
-    })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
-      }
-      next(err);
-    });
+
+  try {
+    const admin = await Admin.findOne({ userId: userId });
+    if (!admin) {
+      const error = new Error('UserId did not match!');
+      error.statusCode = 401;
+      throw error;
+    }
+    const isEqual = await bcrypt.compare(password, admin.password);
+
+    if (!isEqual) {
+      const error = new Error('Incorrect password!');
+      error.statusCode = 401;
+      throw error;
+    }
+    const token = jwt.sign(
+      {
+        userId: admin.userId,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '20m' }
+    );
+    res.status(200).json({ token: token, userId: admin.userId });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
 };
 
-exports.getTeams = (req, res) => {
-  Teams.find().exec((err, team) => {
-    if (err) {
-      return res.status(400).json({
-        error: 'cannot get teams',
-      });
+exports.getTeams = async (req, res, next) => {
+  try {
+    const teams = await Teams.find();
+    if (!teams) {
+      const error = new Error('Teams not found');
+      error.statusCode = 400;
+      throw error;
     }
-    res.json({ team });
-  });
+    res.json({ teams });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
 };
-exports.getEvents = (req, res) => {
-  Events.find().exec((err, event) => {
-    if (err) {
-      return res.status(400).json({
-        error: 'cannot get events',
-      });
+exports.getEvents = async (req, res, next) => {
+  try {
+    const events = await Events.find();
+    if (!events) {
+      const error = new Error('Events not found');
+      error.statusCode = 400;
+      throw error;
     }
-    res.json({ event });
-  });
+    res.json({ events });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
 };
 exports.getMembers = (req, res) => {
   res.json('hello');
 };
-exports.getAllTeamsForEvent = (req, res) => {
+
+exports.getAllTeamsForEvent = async (req, res, next) => {
   const eventName = req.params.eventName;
-  Events.findOne({ eventName: eventName }).then((event) => {
-    // console.log(event);
-    Teams.find({ eventId: event._id })
-      .populate('eventId')
-      .exec((err, doc) => {
-        if (err) {
-          return console.error(err);
-        }
-        res.json({ teams: doc });
-      });
-  });
+
+  try {
+    const event = await Events.findOne({ eventName: eventName });
+
+    const teams = await Teams.find({ eventId: event._id }).populate('eventId');
+
+    res.json({ teams: teams });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+      next(err);
+    }
+  }
 };
-exports.getAllMembersForEvent = (req, res) => {
+
+exports.getAllMembersForEvent = async (req, res, next) => {
   const eventName = req.params.eventName;
-  Events.findOne({ eventName: eventName }).then((event) => {
-    Members.find({ eventId: event._id })
-      .populate('eventId')
-      .exec((err, doc) => {
-        if (err) {
-          return console.error(err);
-        }
-        res.json({ teams: doc });
-      });
-  });
+  try {
+    const event = await Events.findOne({ eventName: eventName });
+    const members = await Members.find({ eventId: event._id }).populate(
+      'eventId'
+    );
+
+    res.json({ members: doc });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+      next(err);
+    }
+  }
 };
