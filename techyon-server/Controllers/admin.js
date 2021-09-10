@@ -20,6 +20,7 @@ const Events = require('../models/events');
 const Members = require('../models/members');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const teams = require('../models/teams');
 
 exports.signup = (req, res, next) => {
   const { userId, password } = req.body;
@@ -107,7 +108,18 @@ exports.getMembers = (req, res) => {
   res.json('hello');
 };
 exports.getAllTeamsForEvent = (req, res) => {
-  res.json('hello');
+  const eventName = req.params.eventName;
+  Events.findOne({ eventName: eventName }).then((event) => {
+    // console.log(event);
+    Teams.find({ eventId: event._id })
+      .populate('eventId')
+      .exec((err, doc) => {
+        if (err) {
+          return console.error(err);
+        }
+        res.json({ teams: doc });
+      });
+  });
 };
 exports.getAllMembersForEvent = (req, res) => {
   res.json('hello');
