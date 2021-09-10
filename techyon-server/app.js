@@ -8,15 +8,11 @@ dotenv.config();
 const teams = require('./Routes/PostTeams');
 const events = require('./Routes/PostEvents');
 const admin = require('./Routes/Admin');
-const adminDetails = require('./Routes/adminDetails');
 
 //connect to DB
 mongoose.connect(
   process.env.DB_CONNECT,
-  { useNewUrlParser: true ,
-    useUnifiedTopology: true
-  
-  },
+  { useNewUrlParser: true, useUnifiedTopology: true },
 
   () => {
     console.log('connected to DB');
@@ -27,7 +23,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //bodyParser is deprecated. Changed it to express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/admin-detail', adminDetails);
 app.use('/event', events);
 app.use('/team', teams);
 app.use('/admin', admin);
