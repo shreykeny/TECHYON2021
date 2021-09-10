@@ -114,10 +114,22 @@ exports.getEvents = async (req, res, next) => {
     next(err);
   }
 };
-exports.getMembers = (req, res) => {
-  res.json('hello');
+exports.getMembers = async (req, res, next) => {
+  try {
+    const members = await Members.find();
+    if (!members) {
+      const error = new Error('Members not found');
+      error.statusCode = 400;
+      throw error;
+    }
+    res.json({ members });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
 };
-
 exports.getAllTeamsForEvent = async (req, res, next) => {
   const eventName = req.params.eventName;
 
