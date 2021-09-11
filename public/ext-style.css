@@ -1,23 +1,35 @@
 .faq {
-    overflow: hidden;
-    text-align: center;
+  overflow: hidden;
+  text-align: center;
 }
 .faq:before,
 .faq:after {
-    background-color: #E30B5D;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 10%;
+  background-color: #e30b5d;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 10%;
 }
 .faq:before {
-    right: 0.5em;
-    margin-left: -50%;
+  right: 0.5em;
+  margin-left: -50%;
 }
 .faq:after {
-    left: 0.5em;
-    margin-right: -50%;
+  left: 0.5em;
+  margin-right: -50%;
 }
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 12px;
+
+  cursor: pointer;
+}
+
+.checkbox:checked + label .toggle-dot {
+  transform: translateX(20px);
+}
