@@ -6,6 +6,7 @@ const { body, validationResult } = require('express-validator');
 const {
   getEventByName,
   checkEventTypeIsSolo,
+  checkEventTypeIsIntra,
   mapNamesFromReqObj,
 } = require('../common');
 
@@ -33,35 +34,18 @@ exports.addTeam = async (req, res) => {
       : i === 0
       ? 'Leader'
       : 'Member';
-    const name = pos === 'Solo' ? req.body.name : names[i];
-    if (pos === 'Leader')
-      member = {
-        name: names[0],
-        department: req.body.department,
-        year: req.body.year,
-        phoneNo: req.body.phoneNo,
-        email: req.body.email,
-        position: pos,
-        eventId: eventId,
-      };
-    else if (pos === 'Member')
-      member = {
-        name: name,
-        department: req.body.department,
-        year: req.body.year,
-        position: pos,
-        eventId: eventId,
-      };
-    else
-      member = {
-        name: name,
-        department: req.body.department,
-        year: req.body.year,
-        phoneNo: req.body.phoneNo,
-        email: req.body.email,
-        position: pos,
-        eventId: eventId,
-      };
+      
+    member = {
+      name: pos === 'Solo' ? req.body.name : pos === "Leader"? names[0]: names[i],
+      department: req.body.department,
+      year: req.body.year,
+      position: pos,
+      eventId: eventId,
+    };
+    if (pos != 'Member'){
+      member.phoneNo =req.body.phoneNo
+      member.email = req.body.email
+    }
     memberList.push(member);
   }
   await Member.insertMany(memberList)
@@ -76,10 +60,11 @@ exports.addTeam = async (req, res) => {
     });
 
   if (!(await checkEventTypeIsSolo(req.body.eventName))) {
+    
     const team = new Teams({
       teamName: req.body.teamName,
       members: memberIds,
-      college: req.body.college,
+      college: await checkEventTypeIsIntra(req.body.eventName)?"PCCE":req.body.college,
       eventId: eventId,
     });
 

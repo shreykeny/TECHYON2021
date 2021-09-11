@@ -27,3 +27,12 @@ exports.checkEventTypeIsSolo =async (eventName) =>  {
       else 
         return false
       }
+exports.checkEventTypeIsIntra =async (eventName) =>  {
+        const event = await Event.findOne({
+          "eventName": eventName
+      })
+      if(event.college === "Intra")
+        return true
+      else 
+        return false
+      }

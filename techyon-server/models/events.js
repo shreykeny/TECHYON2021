@@ -12,6 +12,11 @@ const EventSchema=new mongoose.Schema({
         required: true,
         min: 8, 
     },
+    college:{
+        type: String,
+        required: true,
+        enum: ["Intra","Inter"]
+    },
     description:{
         type: String,
         required: true,
