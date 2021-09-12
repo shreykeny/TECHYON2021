@@ -33,6 +33,6 @@ app.use((error, req, res, next) => {
   res.status(status).json({ msg, data });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('app is running ');
 });
