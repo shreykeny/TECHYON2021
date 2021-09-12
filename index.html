@@ -56,23 +56,24 @@
              </button>
            </div>
            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row dark:bg-white dark:text-black">
-             <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Home">Home</a>
-             <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Events">Events</a>
-             <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Sponsors">Sponsors</a>
-            
-             <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Contactus">Contact</a>
-             <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Team">Team</a>
-             <div @click.away="open = false" class="relative" x-data="{ open: false }">
-               <button @click="open = !open" class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                Results
-               </button>
-              
-       
-              </div>
-             </div>
+            <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Home">Home</a>
+            <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Events">Events</a>
+            <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Sponsors">Sponsors</a>
+           
+            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Contactus">Contact</a>
+            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Team">Results</a>
+            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Team">Team</a>
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+              <button @click="open = !open" class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+              <a href="public/single_registration.html"> Register</a>
+              </button>
              
-             </div>  
-           </nav>
+      
+             </div>
+            </div>
+            
+            </div>  
+          </nav>
            <div class="  text-white mt-24 ">
             <div class="   flex flex-row-reverse   md:mx-16 lg:justify-between flex-wrap justify-start ">
               
@@ -521,10 +522,10 @@
                         </li>
                        
                         <li>
-                          <a  href="#" class=" smooth text-gray-600 hover:text-white">Team</a>
+                          <a  href="#Team" class=" smooth text-gray-600 hover:text-white">Team</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 smooth hover:text-white " href="#contactus">Contact</a>
+                            <a class="text-gray-600 smooth hover:text-white " href="#Contactus">Contact</a>
                           </li>
                           <li>
                             <a href="#Sponsors"class=" smooth text-gray-600 hover:text-white">Sponsors</a>
