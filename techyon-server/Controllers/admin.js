@@ -60,7 +60,28 @@ exports.login = async (req, res, next) => {
       process.env.JWT_SECRET,
       { expiresIn: '20m' }
     );
-    res.status(200).json({ token: token, userId: admin.userId });
+
+    // const count = getIntraData();
+    //Getting data for INTRA
+    const department = userId.substring(5);
+    const firstYear = await Members.countDocuments({
+      year: 1,
+      department,
+    });
+    const secondYear = await Members.countDocuments({ year: 2, department });
+    const thirdYear = await Members.countDocuments({ year: 3, department });
+    const fourthYear = await Members.countDocuments({ year: 4, department });
+
+    res.status(200).json({
+      token: token,
+      userId: admin.userId,
+      IntraStudentCount: {
+        First: firstYear,
+        Second: secondYear,
+        Third: thirdYear,
+        Fourth: fourthYear,
+      },
+    });
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -203,3 +224,11 @@ exports.createPdf = async (req, res, next) => {
 
   // pdfDoc.end();
 };
+
+// const getIntraData = () => {
+//   const firstYear = Members.countDocuments({ year: 1 });
+//   const secondYear = Members.countDocuments({ year: 2 });
+//   const thirdYear = Members.countDocuments({ year: 3 });
+//   const fourthYear = Members.countDocuments({ year: 4 });
+//   return [firstYear, secondYear, thirdYear, fourthYear];
+// };
