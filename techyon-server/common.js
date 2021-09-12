@@ -41,11 +41,11 @@ exports.checkEventTypeIsIntra =async (eventName) =>  {
 exports.getInterCollegeMetrics= async function(department){
   const colleges=['PCCE', 'DBCE', 'NIT', 'GEC', 'RIT', 'CHOWGULE']
   let collegeDetails=[]
- for(var i=0;i<colleges.length,i++;){
+ for(var i=0;i<colleges.length;i++){
      collegeDetails.push({
-      teams:  await Teams.countDocuments({ "college": element,"department":department }),
-      totalRegisteredMembers: await Members.countDocuments({"college": element,department}),
-      totalSoloMembers: await Members.countDocuments({ "college": element, "position": "Solo",department }),
+      teams:  await Teams.countDocuments({ "college": colleges[i],"department":department }),
+      totalRegisteredMembers: await Members.countDocuments({"college": colleges[i],department}),
+      totalSoloMembers: await Members.countDocuments({ "college": colleges[i], "position": "Solo",department }),
       eventsHosted: await Event.countDocuments({ "hostedBy":department }),
       teamEvents: await Event.countDocuments({ "eventType": "Team","hostedBy":department,"college": "Inter" }),
       soloEvents: await Event.countDocuments({ "eventType":"Solo","hostedBy":department, "college": "Inter"})
@@ -69,9 +69,9 @@ exports.getIntraCollegeMetrics= async (department)=>{
   for(var i=0;i<years.length;i++){
     yearDetails.push({
       teams:  await Teams.countDocuments({ "year": yearsNum[i], department }),
-      // totalRegisteredMembers: await Members.countDocuments({ "year": years[i], department }),
-      // totalSoloMembers: await Members.countDocuments({ "year": years[i], department, "position": "Solo" }),
-      teamEvents: await Event.countDocuments({ "eventType": "Team","hostedBy":department,"college": "Intra" }),
+      totalRegisteredMembers: await Members.countDocuments({ "year": yearsNum[i], department }),
+      totalSoloMembers: await Members.countDocuments({ "year": yearsNum[i], department, "position": "Solo" }),
+      teamEvents: await Event.countDocuments({"eventType": "Team","hostedBy":department,"college": "Intra"  }),
       soloEvents: await Event.countDocuments({ "eventType":"Solo","hostedBy":department, "college": "Intra"})
     })
     console.log(yearDetails[i])

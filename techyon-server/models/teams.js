@@ -12,7 +12,7 @@ const TeamSchema = new mongoose.Schema(
     department: {
       type: String,
       required: true,
-      min: 8,
+      enum:["MECH","ETC","COMP","IT"]
     },
     year:{
       type: Number,

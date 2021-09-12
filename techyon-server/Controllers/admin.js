@@ -64,9 +64,6 @@ exports.login = async (req, res, next) => {
 
     //Getting data for INTRA
     const department = userId.substring(5);
-   
-
-
     res.status(200).json({
       token: token,
       userId: admin.userId,

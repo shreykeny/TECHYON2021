@@ -19,6 +19,7 @@ exports.addTeam = async (req, res) => {
       errors: errors.array(),
     });
   }
+
   var obj = { ...req.body };
   const members = parseInt(req.body.members);
   const names = mapNamesFromReqObj(obj);
