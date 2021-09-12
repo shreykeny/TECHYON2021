@@ -1,20 +1,28 @@
-[
-    {
-        "eventName": "weaveweb",
-        "hostedBY": "IT",
-        "description": "gg event not so good",
-        "eventType": "Solo"
-    },
-    {
-        "eventName": "techwiz",
-        "hostedBY": "ETC",
-        "description": "beri beri nice event",
-        "eventType": "Team"
-    },
-    {
-        "eventName": "nomad",
-        "hostedBY": "MECH",
-        "description": "beri bed event",
-        "eventType": "Team"
-    }
-]
+[{
+  "_id": {
+    "$oid": "613a9f73cc084d92f5c7181e"
+  },
+  "eventName": "weaveweb",
+  "campus": "Intra",
+  "hostedBY": "IT",
+  "description": "gg event not so good",
+  "eventType": "Solo"
+},{
+  "_id": {
+    "$oid": "613a9f73cc084d92f5c71820"
+  },
+  "eventName": "nomad",
+  "campus": "Inter",
+  "hostedBY": "MECH",
+  "description": "beri bed event",
+  "eventType": "Team"
+},{
+  "_id": {
+    "$oid": "613a9f73cc084d92f5c7181f"
+  },
+  "eventName": "techwiz",
+  "campus": "Intra",
+  "hostedBY": "ETC",
+  "description": "beri beri nice event",
+  "eventType": "Team"
+}]

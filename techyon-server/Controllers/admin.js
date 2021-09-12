@@ -1,24 +1,14 @@
-// const dirs=__dirname.split("/")
-// var root=""
-// dirs.forEach((element,index)=>{
-//     if(index+1 != dirs.length)
-//         root+= element+"/"
-// })
-// const dashboard=root+"public/html-dashboard-page/dashboard.html"
-// const login=root +"public/html-login-page/login.html"
-
-// exports.renderDashboard = (req, res) => {
-//     res.sendFile(dashboard)
-// };
-// exports.renderLogin = (req, res) => {
-//     res.sendFile(login)
-// };
-
 const Admin = require('../models/admin');
+const Teams = require('../models/teams');
+const Events = require('../models/events');
+const Members = require('../models/members');
 const bcrypt = require('bcryptjs');
-const { reset } = require('nodemon');
 const jwt = require('jsonwebtoken');
-const admin = require('../models/admin');
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
+const path = require('path');
+const pdf = require('html-pdf-node');
+const {getInterCollegeMetrics, getIntraCollegeMetrics} = require("../common")
 
 exports.signup = (req, res, next) => {
   const { userId, password } = req.body;
@@ -46,38 +36,149 @@ exports.signup = (req, res, next) => {
     });
 };
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
   const { userId, password } = req.body;
   let loadedAdmin;
-  Admin.findOne({ userId: userId })
-    .then((admin) => {
-      if (!admin) {
-        const error = new Error('UserId did not match!');
-        error.statusCode = 401;
-        throw error;
-      }
-      loadedAdmin = admin;
-      return bcrypt.compare(password, admin.password);
-    })
-    .then((isEqual) => {
-      if (!isEqual) {
-        const error = new Error('Incorrect password!');
-        error.statusCode = 401;
-        throw error;
-      }
-      const token = jwt.sign(
-        {
-          userId: admin.userId,
-        },
-        process.env.JWT_SECRET,
-        { expiresIn: '20m' }
-      );
-      res.status(200).json({ token: token, userId: loadedAdmin.userId });
-    })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
-      }
-      next(err);
+
+  try {
+    const admin = await Admin.findOne({ userId: userId });
+    if (!admin) {
+      const error = new Error('UserId did not match!');
+      error.statusCode = 401;
+      throw error;
+    }
+    const isEqual = await bcrypt.compare(password, admin.password);
+
+    if (!isEqual) {
+      const error = new Error('Incorrect password!');
+      error.statusCode = 401;
+      throw error;
+    }
+    const token = jwt.sign(
+      {
+        userId: admin.userId,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '20m' }
+    );
+
+    //Getting data for INTRA
+    const department = userId.substring(5);
+   
+
+
+    res.status(200).json({
+      token: token,
+      userId: admin.userId,
+      InterCollege: await getInterCollegeMetrics(department),
+      IntraCollege: await getIntraCollegeMetrics(department),
     });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+
+exports.getTeams = async (req, res, next) => {
+  try {
+    const teams = await Teams.find();
+    if (!teams) {
+      const error = new Error('Teams not found');
+      error.statusCode = 400;
+      throw error;
+    }
+    res.json({ teams });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+exports.getEvents = async (req, res, next) => {
+  try {
+    const events = await Events.find();
+    if (!events) {
+      const error = new Error('Events not found');
+      error.statusCode = 400;
+      throw error;
+    }
+    res.json({ events });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+exports.getMembers = async (req, res, next) => {
+  try {
+    const members = await Members.find();
+    if (!members) {
+      const error = new Error('Members not found');
+      error.statusCode = 400;
+      throw error;
+    }
+    console.log(members.length)
+    res.json({ members });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+exports.getAllTeamsForEvent = async (req, res, next) => {
+  const eventName = req.params.eventName;
+
+  try {
+    const event = await Events.findOne({ eventName: eventName });
+
+    const teams = await Teams.find({ eventId: event._id }).populate('eventId');
+
+    res.json({ teams: teams });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+      next(err);
+    }
+  }
+};
+
+exports.getAllMembersForEvent = async (req, res, next) => {
+  const eventName = req.params.eventName;
+  try {
+    const event = await Events.findOne({ eventName: eventName });
+    const members = await Members.find({ eventId: event._id }).populate(
+      'eventId'
+    );
+
+    res.json({ members: members });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+      next(err);
+    }
+  }
+};
+
+//Trial route
+exports.createPdf = async (req, res, next) => {
+  const events = await Events.find();
+  const teams = await Teams.find();
+
+  const name = 'Amar';
+  let options = { format: 'A4' };
+  let file = {
+    content: `<h1>Welcome to html-pdf-node</h1>
+  <h2>${teams.map((team) => team.teamName)}</h2>
+  <h2>${events.map((event) => event.eventName)}</h2>
+  `,
+  };
+  const pdfFile = await pdf.generatePdf(file, options);
+  res.setHeader('Content-Type', 'application/pdf');
+
+  res.send(pdfFile);
 };
