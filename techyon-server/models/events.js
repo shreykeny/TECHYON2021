@@ -27,10 +27,7 @@ const EventSchema=new mongoose.Schema({
         default: "Solo",
         enum: ["Team","Solo"]
     }
-    } ,{
-        timestamps: true
-    }
-   
-  );
+    } 
+   );
   var events = mongoose.model('Events',EventSchema);
   module.exports =events;

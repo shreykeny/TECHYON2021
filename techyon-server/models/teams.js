@@ -9,6 +9,16 @@ const TeamSchema = new mongoose.Schema(
       min: 6,
     },
     members: Array,
+    department: {
+      type: String,
+      required: true,
+      min: 8,
+    },
+    year:{
+      type: Number,
+      min: 1,
+      max: 1
+    },
     college: {
       type: String,
       default: 'PCCE',

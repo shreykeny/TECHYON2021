@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const teams = require('./Routes/PostTeams');
-const events = require('./Routes/PostEvents');
 const admin = require('./Routes/Admin');
 
 //connect to DB
@@ -22,7 +21,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //bodyParser is deprecated. Changed it to express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/event', events);
 app.use('/team', teams);
 app.use('/admin', admin);
 

@@ -16,6 +16,11 @@ const MemberSchema = new mongoose.Schema(
       required: true,
       max: 1,
     },
+    college: {
+      type: String,
+      default: 'PCCE',
+      enum: ['PCCE', 'DBCE', 'NIT', 'GEC', 'RIT', 'CHOWGULE'],
+    },
     position: {
       type: String,
       default: 'Solo',

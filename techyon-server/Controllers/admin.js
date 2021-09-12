@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
-var pdf = require('html-pdf-node');
+const pdf = require('html-pdf-node');
+const {getInterCollegeMetrics, getIntraCollegeMetrics} = require("../common")
 
 exports.signup = (req, res, next) => {
   const { userId, password } = req.body;
@@ -63,23 +64,14 @@ exports.login = async (req, res, next) => {
 
     //Getting data for INTRA
     const department = userId.substring(5);
-    const firstYear = await Members.countDocuments({
-      year: 1,
-      department,
-    });
-    const secondYear = await Members.countDocuments({ year: 2, department });
-    const thirdYear = await Members.countDocuments({ year: 3, department });
-    const fourthYear = await Members.countDocuments({ year: 4, department });
+   
+
 
     res.status(200).json({
       token: token,
       userId: admin.userId,
-      IntraStudentCount: {
-        First: firstYear,
-        Second: secondYear,
-        Third: thirdYear,
-        Fourth: fourthYear,
-      },
+      InterCollege: await getInterCollegeMetrics(department),
+      IntraCollege: await getIntraCollegeMetrics(department),
     });
   } catch (err) {
     if (!err.statusCode) {
@@ -129,6 +121,7 @@ exports.getMembers = async (req, res, next) => {
       error.statusCode = 400;
       throw error;
     }
+    console.log(members.length)
     res.json({ members });
   } catch (err) {
     if (!err.statusCode) {
@@ -162,7 +155,7 @@ exports.getAllMembersForEvent = async (req, res, next) => {
       'eventId'
     );
 
-    res.json({ members: doc });
+    res.json({ members: members });
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;

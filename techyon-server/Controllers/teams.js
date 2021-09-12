@@ -19,7 +19,6 @@ exports.addTeam = async (req, res) => {
       errors: errors.array(),
     });
   }
-  // return res.sendStatus(200)
   var obj = { ...req.body };
   const members = parseInt(req.body.members);
   const names = mapNamesFromReqObj(obj);
@@ -38,6 +37,7 @@ exports.addTeam = async (req, res) => {
     member = {
       name: pos === 'Solo' ? req.body.name : pos === "Leader"? names[0]: names[i],
       department: req.body.department,
+      college: req.body.college,
       year: req.body.year,
       position: pos,
       eventId: eventId,
@@ -48,6 +48,7 @@ exports.addTeam = async (req, res) => {
     }
     memberList.push(member);
   }
+
   await Member.insertMany(memberList)
     .then(function (datas, err) {
       console.log(datas); // Success
@@ -64,6 +65,8 @@ exports.addTeam = async (req, res) => {
     const team = new Teams({
       teamName: req.body.teamName,
       members: memberIds,
+      year: req.body.year,
+      department: req.body.department,
       college: await checkEventTypeIsIntra(req.body.eventName)?"PCCE":req.body.college,
       eventId: eventId,
     });
