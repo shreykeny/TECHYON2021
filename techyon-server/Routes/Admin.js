@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// const { renderLogin, renderDashboard } = require('../Controllers/admin');
 const adminController = require('../Controllers/admin');
 const auth = require('../middleware/auth');
 

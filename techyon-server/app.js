@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// const public = require('./Routes/public');
 const teams = require('./Routes/PostTeams');
 const events = require('./Routes/PostEvents');
 const admin = require('./Routes/Admin');
@@ -26,9 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/event', events);
 app.use('/team', teams);
 app.use('/admin', admin);
-// app.use('/', (req, res, next) => {
-//   res.json({ msg: 'Work in progress' });
-// });
 
 //Error handler. See admin controller to check how to use this error handler
 app.use((error, req, res, next) => {

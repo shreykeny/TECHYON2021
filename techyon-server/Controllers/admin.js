@@ -61,7 +61,6 @@ exports.login = async (req, res, next) => {
       { expiresIn: '20m' }
     );
 
-    // const count = getIntraData();
     //Getting data for INTRA
     const department = userId.substring(5);
     const firstYear = await Members.countDocuments({
@@ -173,7 +172,6 @@ exports.getAllMembersForEvent = async (req, res, next) => {
 };
 
 //Trial route
-
 exports.createPdf = async (req, res, next) => {
   const events = await Events.find();
   const teams = await Teams.find();
@@ -188,47 +186,6 @@ exports.createPdf = async (req, res, next) => {
   };
   const pdfFile = await pdf.generatePdf(file, options);
   res.setHeader('Content-Type', 'application/pdf');
-  // res.setHeader(
-  //   'Content-Disposition',
-  //   'inline; filename =" ' + 'TrialFile' + '"'
-  // );
 
   res.send(pdfFile);
-
-  // const invoicePath = path.join('data', 'invoices', 'trialFile');
-  // const pdfDoc = new PDFDocument();
-  // res.setHeader('Content-Type', 'application/pdf');
-  // res.setHeader(
-  //   'Content-Disposition',
-  //   'inline; filename =" ' + 'TrialFile' + '"'
-  // );
-  // pdfDoc.pipe(fs.createWriteStream(invoicePath));
-  // pdfDoc.pipe(res);
-  // pdfDoc.fontSize(30).text('Registered Teams', {
-  //   underline: true,
-  // });
-  // pdfDoc.text('----------------------------------------------');
-
-  // events.forEach((event) => {
-  //   console.log(event.eventName);
-  //   pdfDoc.fontSize(25).text(event.eventName);
-  // });
-  // teams.forEach((team) => {
-  //   console.log(team.teamName);
-  //   pdfDoc.fontSize(25).text(team.teamName);
-  // });
-
-  // pdfDoc.fontSize(14).text('Amar' + ' - ' + 'Narute' + ' x ' + '$' + '32');
-  // pdfDoc.text('---');
-  // pdfDoc.fontSize(20).text('Total Price: $20');
-
-  // pdfDoc.end();
 };
-
-// const getIntraData = () => {
-//   const firstYear = Members.countDocuments({ year: 1 });
-//   const secondYear = Members.countDocuments({ year: 2 });
-//   const thirdYear = Members.countDocuments({ year: 3 });
-//   const fourthYear = Members.countDocuments({ year: 4 });
-//   return [firstYear, secondYear, thirdYear, fourthYear];
-// };
