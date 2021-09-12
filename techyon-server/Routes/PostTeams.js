@@ -5,6 +5,7 @@ const { checkIfMemberIsRegistered} = require("../middleware/userIsRegisteredForE
 const {checkEventExists} = require("../middleware/checkIfEventNameExists")
 const { body, check,validationResult } = require('express-validator');
 const {mapNamesFromReqObj,checkEventTypeIsSolo} = require("../common")
+const { checkIntra} = require("../middleware/checkIfRequestIsForIntra")
 
 router.post("/add",
 [   check('email').exists(),
@@ -22,7 +23,8 @@ router.post("/add",
     }),
     checkEventExists,
     checkDuplicateTeamName,
-    checkIfMemberIsRegistered
+    checkIfMemberIsRegistered,
+    checkIntra
 ], 
 addTeam)
 
@@ -35,7 +37,8 @@ async function membersValidate(value,{req}){
         return Promise.reject('Invalid Members value');
     if (value!=1 && typeof names === "string" ) 
         return Promise.reject('Invalid Members value');
-    if(checkEventTypeIsSolo(req.body.eventName) && typeof names !="string" )
+       
+    if(await checkEventTypeIsSolo(req.body.eventName) && typeof names !="string" )
         return Promise.reject('Multiple names for a solo event');
 }
 module.exports =router

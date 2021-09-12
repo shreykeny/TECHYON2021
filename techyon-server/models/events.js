@@ -12,7 +12,7 @@ const EventSchema=new mongoose.Schema({
         required: true,
         min: 8, 
     },
-    college:{
+    campus:{
         type: String,
         required: true,
         enum: ["Intra","Inter"]
