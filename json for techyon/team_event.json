@@ -1,0 +1,15 @@
+[
+    {
+        "Branch_conducting":"Computer---dropdown",
+        "College_name":"string-- keep open",
+        "dept_name":"string -- open",
+        "year of studying":"roman number -- I II III IV",
+        "event_name":"lorem----string",
+        "team_name":"lorem----string",
+        "Number_of_members":"lorem----number",
+        "name_of_team_lead":"lorem----string",
+        "phone_of_team_lead":"lorem----number",
+        "email_of_team_lead":"lorem----email",
+        ["team_mem1":"name---string","team_mem2":"name---string","team_mem_N":"name---string",]
+    }
+]
