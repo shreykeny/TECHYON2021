@@ -1,38 +1,53 @@
-const mongoose =require('mongoose')
-const MemberSchema=new mongoose.Schema({
-    name:{
-        type: String,
-        required: true,
-        min: 6
+const mongoose = require('mongoose');
+const MemberSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      min: 6,
     },
-    department:{
-        type: String,
-        required: true,
-        min: 8
+    department: {
+      type: String,
+      required: true,
+      enum:["MECH","ETC","COMP","IT"]
     },
-    phoneNo:{
-        type: Number,
-        required: true,
-        min: 6
+    year: {
+      type: Number,
+      required: true,
+      max: 1,
     },
-    position:{
-        type: String,
-        default: "Solo",
-        enum: ["Leader","Member", "Solo"]
+    college: {
+      type: String,
+      default: 'PCCE',
+      enum: ['PCCE', 'DBCE', 'NIT', 'GEC', 'RIT', 'CHOWGULE'],
     },
-    email:{
-        type: String,
-        required: true,
-        min: 6
+    position: {
+      type: String,
+      default: 'Solo',
+      enum: ['Leader', 'Member', 'Solo'],
     },
-    eventId:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Events',
-        required: true,
-    }
-    } ,{
-        timestamps: true
-    }
-   
-  );
-  module.exports= mongoose.model('members',MemberSchema);
+    email: {
+      type: String,
+      required: function () {
+        return this.position === 'Solo';
+      },
+      min: 6,
+    },
+    phoneNo: {
+      type: Number,
+      required: function () {
+        return this.position === 'Solo';
+      },
+      min: 6,
+    },
+    eventId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Events',
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+module.exports = mongoose.model('Members', MemberSchema);

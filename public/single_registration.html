@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html html class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ext-style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Registration</title>
+</head>
+<body class="bg-black dark:bg-white dark:text-black">
+        <!--Navbar below-->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <div style="font-family: 'Poppins'; " class="h-88 bg-black dark:bg-white dark:text-black" >
+        <div class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full"  >
+        
+          <div    x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4  mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+           <div class="m-2 text-center">
+             <a href="#" class="  text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon2021</a>
+           </div>
+            <div class="p-4 flex flex-row items-center justify-end">
+             
+              
+           <div  class="flex self-start lg:mx-6 pr-8 ">
+   
+             <div>
+               <input  onclick="myFunction()" type="checkbox" name="" id="toggle" class="checkbox hidden  ">
+               <label for="toggle" class="w-12 h-6 bg-pink-200 relative flex items-center justify-between  rounded-full p-1   ">
+                 <span class="text-black"> <i class=" fa-moon-o fa "></i></span>  
+                 <div class=" absolute 
+                 toggle-dot w-5 h-5  transition duration-300 items-center bg-gray-800 rounded-full transform shadow-md ">
+                   
+                 </div>
+                 <span class="" > <i class=" text-yellow-500 fa fa-sun-o"></i> </span>
+               </label>
+               </div>
+            
+             </div>
+             <!-- TOGGLE SWITCH ENDD -->
+              <button class=" md:hidden rounded-lg focus:outline-none focus:shadow-outline " @click="open = !open">
+                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-white dark:text-black">
+                  <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row dark:bg-white dark:text-black">
+              <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Home">Home</a>
+              <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Events">Events</a>
+              <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Sponsors">Sponsors</a>
+             
+              <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Contactus">Contact</a>
+              <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Team">Results</a>
+              <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../index.html#Team">Team</a>
+              <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                <button @click="open = !open" class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <a href="single_registration.html"> Register</a>
+                </button>
+               
+        
+               </div>
+              </div>
+              
+              </div>  
+            </nav>
+            
+        </div>
+        <!-- back to top  -->
+ <button    onclick="topFunction()"  id="myBtn" class="  p-2.5   md:m-2 lg:m-2  text-white   bg-pink-400 opacity-75 hover:bg-pink-600 hover:opacity-100 transition-all duration-500 ease-in-out rounded-full  z-50">
+  <span ><i class="fa fa-chevron-up "></i></span>
+ </button>
+  <div class=" lg:min-h-screen flex items-center justify-center bg-black dark:bg-white   dark:text-black my-32  m-2">
+    <div class="bg-gray-900 dark:bg-white lg:p-16 rounded shadow-2xl lg:w-2/3" >
+      <h2 class="text-3xl font-bold mb-10 dark:text-black  text-white text-center mt-6">Techyon Event Register</h2>
+    <form action="" class="space-y-5 m-6 ">
+    <div class="lg:m-6">
+      <label class="block mb-1 font-bold text-gray-500 " for="s1">
+        SELECT COMPETETION
+      </label>
+      <div class="">
+        <select name="s1" id="s1" onchange=" interIntra(this.id,'sname')"  class=" uppercase block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline  " required>
+          <option value="">select</option>
+          <option value="intraevent">intraevent</option>
+          <option value="interevent"> interevent</option>
+          
+     </select>
+        
+      </div>
+    </div>
+    <div class="lg:m-6">
+    
+    <label class="block mb-1 font-bold text-gray-500 " for="sname">
+     College Name
+    </label>
+    <div class="">
+      <select name="sname" id="sname"  class=" uppercase block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline  " required  onchange=" teamSolo(this.id,'s2')" >
+        <option value=""></option>
+    
+        
+   </select>
+      
+    </div>
+  </div>
+    <div class="lg:m-6">
+      <label class=" uppercase block mb-1 font-bold text-gray-500" for="s2">
+        EVENT TYPE
+      </label>
+      <div class="">
+        <select class= " uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="s2" id="s2"  required onchange=" event_list('s2','s3')" >
+   
+          <option value=""></option>
+          
+          
+        </select>
+        
+      </div>
+    </div>
+    <div class="lg:m-6">
+      <label class=" uppercase block mb-1 font-bold text-gray-500" for="s3">
+       EVENT
+      </label>
+      <div class="">
+        <select class=" uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="s3" id="s3" required>
+          <option value=""></option>
+        </select>
+        
+      </div>
+    </div>
+    <div class="lg:m-6">
+      <label class="uppercase block mb-1 font-bold text-gray-500" for="teamName">
+          Team Name
+        </label>
+      <input class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outlinee" type="text" name="teamName" id="team__name" placeholder="Enter Team Name" minlength="3" required >
+  </div>
+  <div class="lg:m-6">
+    <label class="uppercase block mb-1 font-bold text-gray-500" for="members">
+        Enter Members Number
+      </label>
+    <input type="number" name="memebers" id="team__mates" placeholder="Enter number of team mates" min="1" max="4" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div>         
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="team__lead">
+      Name of Team Lead
+    </label>
+  <input type="text" name="team__lead" id="name1" placeholder="(eg. John Smith)" minlength="3" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div>   
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="membername">
+     Member Name 1
+    </label>
+  <input type="text" name="membername" id="name1" placeholder="(eg. J Smith)" minlength="3" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div>  
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="membername">
+     Member Name 2
+    </label>
+  <input type="text" name="membername" id="name1" placeholder="(eg. J Smith)" minlength="3" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div> 
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="membername">
+     Member Name 3
+    </label>
+
+  <input type="text" name="membername" id="name1" placeholder="(eg. J Smith)" minlength="3" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div>
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="team__lead">
+      Roll No
+    </label>
+    
+  <input type="text" name="team__lead" id="name1" placeholder="(eg. 19CE01)" minlength="6" maxlength="6" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+</div>
+
+
+    <div class="lg:m-6">
+    <label class=" uppercase block mb-1 font-bold text-gray-500" for="College">
+      Department
+    </label>
+    <select name="eventName" id="event__list" required class=" uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" >
+      <option value="">Select your Department</option>
+      <option value="Mechnical">Mechnical</option>
+      <option value="Electronic and Telecommunication">Electronic and Telecommunication</option>
+      <option value="Computer">Computer</option>
+      <option value="Information Technology">Information Technology</option>
+  </select>
+ 
+</div>
+<div class="lg:m-6">
+  <label class="uppercase block mb-1 font-bold text-gray-500" for="team_year">
+      Year of Studing
+    </label>
+    <select name="year" id="team__year" required class="uppercase  block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+        <option value="">Select Year</option>
+        <option value="First">First Year</option>
+        <option value="Second">Second Year</option>
+        <option value="Third">Third Year</option>
+        <option value="Fourth">Fourth Year</option>
+    </select>
+</div>
+     <div class="lg:m-6">
+  <label class="uppercase  block mb-1 font-bold text-gray-500" for="phoneNumber">
+    Number
+  </label>
+<input type="tel" name="phoneNumber" id="TeamLead__phoneNumber" placeholder="Enter phone number" minlength="10" required class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+
+        </div>
+        
+<div class="lg:m-6">
+  <label class=" uppercase block mb-1 font-bold text-gray-500" for="emailID">
+    Email
+  </label>
+<input type="email" name="email" id="email" placeholder="(eg abc@xyz.com)" required class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+
+</div>
+        <button class=" text-center text-2xl block w-full bg-pink-400 hover:bg-black p-4 rounded text-yellow-900 hover:text-white transition duration-300 ">Register</button>
+    </form>
+  </div>
+  </div>
+
+    
+    
+  <script src="app.js"></script> 
+ 
+<script>
+  function removeAll(s2) {
+    for ( var i=s2.options.length;i>=0;i--)
+    s2.remove(i);
+  }
+   function interIntra(s1,sname)
+   {
+     var s1=document.getElementById('s1');
+     var sname =document.getElementById('sname');
+     if(s1.options[s1.selectedIndex].value =="intraevent")
+     {
+            
+      var opt1= document.createElement('option');
+       var opt2= document.createElement('option');
+      var opt3 = document.createElement('option');
+      var opt4 = document.createElement('option');
+             opt1.value="";
+              opt2.value="PCCE_intra";
+              opt3.value="GEC";
+              opt4.value="DBSC";
+              opt1.innerHTML="select"; 
+              opt2.innerHTML="PCCE";
+              opt3.innerHTML="GEC";
+              opt4.innerHTML="DBSC";
+              removeAll(sname);
+              sname.options.add(opt1);
+              sname.options.add(opt2);
+              sname.options.add(opt3);
+              sname.options.add(opt4);
+              
+     } else if(s1.options[s1.selectedIndex].value =="interevent")
+     {
+      var opt1= document.createElement('option');
+       var opt2= document.createElement('option');
+      
+             opt1.value="";
+              opt2.value="PCCE_inter";
+          
+              opt1.innerHTML="select"; 
+              opt2.innerHTML="PCCE";
+             
+             
+              removeAll(sname);
+              sname.options.add(opt1);
+              sname.options.add(opt2);
+      
+     }  else {
+      var opt1= document.createElement('option');
+      opt1.value="";     
+              opt1.innerHTML="--";
+          
+              removeAll(sname);
+            
+              s2.options.add(opt1);
+              
+     }
+
+   }
+  
+
+   function teamSolo(sname,s2)
+   {
+     var sname=document.getElementById('sname');
+     var s2 =document.getElementById('s2');
+     if(sname.options[sname.selectedIndex].value =="PCCE_intra"||sname.options[sname.selectedIndex].value =="GEC"
+     ||sname.options[sname.selectedIndex].value =="DBSC")
+     {         var opt1= document.createElement('option'); 
+             var opt2= document.createElement('option');
+             var opt3= document.createElement('option');
+             opt1.value="";
+              opt2.value="intraEventTEAM";
+              opt3.value="intraEventSOLO"; 
+               opt1.innerHTML="select"
+              opt2.innerHTML="intraEventTEAM";
+              opt3.innerHTML="intraEventSOLO";
+              removeAll(s2);
+              s2.options.add(opt1);
+              s2.options.add(opt2);
+              s2.options.add(opt3);
+   }else if(sname.options[sname.selectedIndex].value =="PCCE_inter")
+               {
+                var opt1= document.createElement('option'); 
+             var opt2= document.createElement('option');
+             var opt3= document.createElement('option');
+             opt1.value="";
+              opt2.value="TEAM";
+              opt3.value="SOLO"; 
+               opt1.innerHTML="select"
+              opt2.innerHTML="TEAM";
+              opt3.innerHTML="SOLO";
+              removeAll(s2);
+              s2.options.add(opt1);
+              s2.options.add(opt2);
+              s2.options.add(opt3);
+             } else{  
+      
+      var opt1= document.createElement('option');
+             opt1.value="";
+              opt1.innerHTML="none";
+              removeAll(s2);
+              s2.options.add(opt1);
+              
+     }
+   }
+   function event_list(s2,s3)
+   {
+     var s2=document.getElementById('s2');
+     var s3 =document.getElementById('s3');
+     if(s2.options[s2.selectedIndex].value =="TEAM")
+     {
+             var opt1= document.createElement('option');
+             var opt2= document.createElement('option');
+              opt1.value=" teamevent1";
+              opt1.innerHTML="teamevent1";
+              opt2.value=" teamevent2";
+              opt2.innerHTML="teamevent2";
+         
+              removeAll(s3);
+              s3.options.add(opt1);
+              s3.options.add(opt2);
+              
+     } else if(s2.options[s2.selectedIndex].value =="SOLO")
+     {
+             var opt3= document.createElement('option');
+             var opt1= document.createElement('option');
+             var opt2= document.createElement('option');
+             
+             opt3.value="";
+              opt1.value=" solovent1";
+              opt1.innerHTML="solo1";
+              opt2.value=" solo2";
+              opt2.innerHTML="solo2";
+              opt3.innerHTML="select";
+         
+              removeAll(s3);
+              s3.options.add(opt3);
+              s3.options.add(opt1);
+              s3.options.add(opt2);
+              
+              
+     } else if(s2.options[s2.selectedIndex].value =="intraEventTEAM"){
+      var opt1= document.createElement('option');
+             var opt2= document.createElement('option');
+              opt1.value="intraEventTEAM 1";
+              opt1.innerHTML="intraEventTEAM 1";
+              opt2.value="intraEventTEAM 2";
+              opt2.innerHTML="intraEventTEAM 2";
+         
+              removeAll(s3);
+              s3.options.add(opt1);
+              s3.options.add(opt2);
+
+     }  else if (s2.options[s2.selectedIndex].value =="intraEventSOLO"){
+      var opt1= document.createElement('option');
+             var opt2= document.createElement('option');
+              opt1.value="intraEventSOLO 1";
+              opt1.innerHTML="intraEventSOLO 1";
+              opt2.value=" intraEventSOLO 2";
+              opt2.innerHTML="intraEventSOLO2";
+         
+              removeAll(s3);
+              s3.options.add(opt1);
+              s3.options.add(opt2);
+
+     }
+     else{  
+      
+      var opt1= document.createElement('option');
+             opt1.value="";
+              opt1.innerHTML="none";
+              removeAll(s3);
+              s3.options.add(opt1);
+              
+     }
+   }
+
+</script>
+
+</body>
+</html>

@@ -1,66 +1,84 @@
 const Team = require('../models/teams.js');
 const Member = require('../models/members');
 const Teams = require('../models/teams');
-const { data } = require('autoprefixer');
-const Event = require("../models/events")
+const Event = require('../models/events');
+const { body, validationResult } = require('express-validator');
+const {
+  getEventByName,
+  checkEventTypeIsSolo,
+  checkEventTypeIsIntra,
+  mapNamesFromReqObj,
+} = require('../common');
 
 exports.addTeam = async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      success: false,
+      errors: errors.array(),
+    });
+  }
+
   var obj = { ...req.body };
   const members = parseInt(req.body.members);
-  let names,
-    emails,
-    departments,
-    phoneNos = [];
+  const names = mapNamesFromReqObj(obj);
   let memberIds = [];
-  for (var key in obj) {
-    var val = obj[key];
-    if (typeof val === 'object') {
-      if (key === 'name') names = val;
-      else if (key === 'department') departments = val;
-      else if (key === 'phoneNo') phoneNos = val;
-      else if (key === 'email') emails = val;
-    }
-  }
-var memberList=[]
-    for (var i = 0; i < members; i++) {
-      const member = {
-        name: names[i],
-        email: emails[i],
-        department: departments[i],
-        phoneNo: phoneNos[i],
-      }
-      memberList.push(member)
-    }
+  var memberList = [];
+  let member = {};
 
-
-  await Member.insertMany(memberList).then(function(datas,err){
-      console.log(datas)  // Success
-      datas.forEach(element => {
-       memberIds.push(element._id)
-      });
+  const eventId = await getEventByName(req.body.eventName);
+  for (var i = 0; i < members; i++) {
+    const pos = (await checkEventTypeIsSolo(req.body.eventName))
+      ? 'Solo'
+      : i === 0
+      ? 'Leader'
+      : 'Member';
       
-  }).catch(function(error){
-      console.log(error)      // Failure
-  });
- 
+    member = {
+      name: pos === 'Solo' ? req.body.name : pos === "Leader"? names[0]: names[i],
+      department: req.body.department,
+      college: req.body.college,
+      year: req.body.year,
+      position: pos,
+      eventId: eventId,
+    };
+    if (pos != 'Member'){
+      member.phoneNo =req.body.phoneNo
+      member.email = req.body.email
+    }
+    memberList.push(member);
+  }
 
-const eventId= await this.getEventById(req.body.eventName)
+  await Member.insertMany(memberList)
+    .then(function (datas, err) {
+      console.log(datas); // Success
+      datas.forEach((element) => {
+        memberIds.push(element._id);
+      });
+    })
+    .catch(function (error) {
+      console.log(error); // Failure
+    });
 
-const team = new Teams({
-  teamName: req.body.teamName,
-  members: memberIds,
-  eventId:eventId
-})
- 
-const savedTeam= team.save()
-  res.sendStatus(200)
+  if (!(await checkEventTypeIsSolo(req.body.eventName))) {
+    
+    const team = new Teams({
+      teamName: req.body.teamName,
+      members: memberIds,
+      year: req.body.year,
+      department: req.body.department,
+      college: await checkEventTypeIsIntra(req.body.eventName)?"PCCE":req.body.college,
+      eventId: eventId,
+    });
+
+    const savedTeam = team.save();
+    res.json({
+      Team: 'savedTeam',
+    });
+  } else {
+    res.json({
+      Member: 'saved',
+    });
+  }
 };
-
-exports.getEventById =async (eventName) =>  {
-  const event = await Event.findOne({
-    "eventName": eventName
-})
-return event._id
-}
-
-

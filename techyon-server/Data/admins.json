@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "613b28ebef6a5e9a885ad123"
+  },
+  "userId": "adminMECH",
+  "password": "$2a$12$N/PQ.eEAoVyRgodMLHwQjehf73B2vM/jtZMHcP/T1ZBLD44BQ2cD."
+},{
+  "_id": {
+    "$oid": "613b2906ef6a5e9a885ad125"
+  },
+  "userId": "adminETC",
+  "password": "$2a$12$PhIwfEhfwF1m0rLEMIS.IutYVGWUqF3sK94z1lTZSkg7gq7KaB/Cy"
+},{
+  "_id": {
+    "$oid": "613b2914ef6a5e9a885ad127"
+  },
+  "userId": "adminCOMP",
+  "password": "$2a$12$qLxlPeiHVt45qUBiCnCO6.LVsjhIYEu/59v/6vs0JzuHyn80q.JeS"
+},{
+  "_id": {
+    "$oid": "613b2921ef6a5e9a885ad129"
+  },
+  "userId": "adminIT",
+  "password": "$2a$12$QV4uDdaDW6i0n4E/zMets.0/9A6bbsRj0yFUqaMvyrOxHFUzCBmcq"
+}]
