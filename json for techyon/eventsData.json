@@ -1,0 +1,28 @@
+{
+    "comp-1": {
+        "event-name": "Code crunch",
+        "department": "Computer",
+        "type": "Intra",
+        "location": "Online",
+        "date": "5th Oct",
+        "time": "7PM",
+        "event-coordinators": [
+            {
+                "name": "Shrey",
+                "phone-number": "9172229356"
+            },
+            {
+                "name": "Shrey",
+                "phone-number": "9172229356"
+            }
+        ],
+        "rules": [
+            "1. Be nice",
+            "2. Be nicer"
+        ],
+        "prize": [
+            234,
+            242
+        ]
+    }
+}
