@@ -23,6 +23,16 @@
         "prize": [
             234,
             242
+        ],
+        "sponsors" : [
+            {
+                "name" : "apple",
+                "url" : "http://www.google.com"
+            },
+            {
+                "name" : "apple",
+                "url" : "http://www.google.com"
+            }
         ]
     }
 }
