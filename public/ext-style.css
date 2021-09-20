@@ -33,3 +33,7 @@
 .checkbox:checked + label .toggle-dot {
   transform: translateX(20px);
 }
+
+.orbitron {
+  font-family: 'Orbitron', sans-serif;
+}

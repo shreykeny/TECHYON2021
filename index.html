@@ -1,581 +1,673 @@
 <!DOCTYPE html>
 <html class="">
-    <head>
-      <style>
 
-      </style>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="public/style.css">
-        <link rel="stylesheet" href="public/ext-style.css">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-        <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-        <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
-        
-        
-    </head>
-    <body id="Home" class="bg-black dark:bg-white dark:text-black" >
-       <!--Navbar below-->
-       <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-       <div style="font-family: 'Poppins'; " class="h-88 bg-black dark:bg-white dark:text-black" >
-       <div class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full border-b-1 lg:p-4 shadow-2xl"  >
-       
-         <div    x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4  mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-          <div class="m-2 text-center">
-            <a href="#" class="  text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon</a>
-          </div>
-           <div class="p-4 flex flex-row items-center justify-end">
-            
-             
-          <div  class="flex self-start lg:mx-6 pr-8 ">
-  
+<head>
+  <style>
+
+  </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/ext-style.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body id="Home" class="bg-black dark:bg-white dark:text-black">
+  <!--Navbar below-->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div style="font-family: 'Poppins'; " class="h-88 bg-black dark:bg-white dark:text-black">
+    <div
+      class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full border-b-1 lg:p-4 shadow-2xl">
+
+      <div x-data="{ open: false }"
+        class="flex flex-col max-w-screen-xl px-4  mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="m-2 text-center">
+          <a href="#"
+            class="  text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon</a>
+        </div>
+        <div class="p-4 flex flex-row items-center justify-end">
+
+
+          <div class="flex self-start lg:mx-6 pr-8 ">
+
             <div>
-              <input  onclick="myFunction()" type="checkbox" name="" id="toggle" class="checkbox hidden  ">
-              <label for="toggle" class="w-12 h-6 bg-pink-200 relative flex items-center justify-between  rounded-full p-1   ">
-                <span class="text-black"> <i class=" fa-sun-o fa "></i></span>  
-                <div class=" absolute 
+              <input onclick="myFunction()" type="checkbox" name="" id="toggle" class="checkbox hidden  ">
+              <label for="toggle"
+                class="w-12 h-6 bg-pink-200 relative flex items-center justify-between  rounded-full p-1   ">
+                <span class="text-black"> <i class=" fa-sun-o fa "></i></span>
+                <div
+                  class=" absolute 
                 toggle-dot w-5 h-5  transition duration-300 items-center bg-gray-800 rounded-full transform shadow-md  ">
-                  
+
                 </div>
-                <span class="" > <i class=" text-yellow-500 fa fa-moon-o"></i> </span>
+                <span class=""> <i class=" text-yellow-500 fa fa-moon-o"></i> </span>
               </label>
-              </div>
-           
             </div>
-            <!-- TOGGLE SWITCH ENDD -->
-             <button class=" md:hidden rounded-lg focus:outline-none focus:shadow-outline " @click="open = !open">
-               <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-white dark:text-black">
-                 <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                 <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-               </svg>
-             </button>
-           </div>
-           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row dark:bg-white dark:text-black ">
-            <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Home">Home</a>
-            <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Events">Events</a>
-            <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Sponsors">Sponsors</a>
-           
-            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Contactus">Contact</a>
-            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Team">Results</a>
-            <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#Team">Team</a>
-            <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open" class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+
+          </div>
+          <!-- TOGGLE SWITCH ENDD -->
+          <button class=" md:hidden rounded-lg focus:outline-none focus:shadow-outline " @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-white dark:text-black">
+              <path x-show="!open" fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}"
+          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row dark:bg-white dark:text-black ">
+          <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Home">Home</a>
+          <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Events">Events</a>
+          <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Sponsors">Sponsors</a>
+
+          <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Contactus">Contact</a>
+          <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Team">Results</a>
+          <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="#Team">Team</a>
+          <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <button @click="open = !open"
+              class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
               <a href="public/single_registration.html"> Register</a>
-              </button>
-             
-      
-             </div>
-            </div>
-            
-            </div>  
-          </nav>
-           <div class="  text-white mt-24 ">
-            <div class="   flex flex-row-reverse    md:mx-16 lg:justify-between flex-wrap  ">
-              
-                <img class=" w-full lg:w-1/2 self-end    lg:-mb-12" src="public/images/creative-team-animate1.svg" >
-              
-              
-              
-              <div class="  w-full lg:w-1/2 self-center dark:text-black md:mt-6 p-2 text-center ">
-                <h1 class="text-3xl  font-bold mb-2">Our very own tech <br/>event is here !!!</h1>
-                <span class="">Make sure to clear your calender</span><br >
-                <button class="bg-pink-600  px-4 py-2 m-2 rounded-lg  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-black hover:text-white dark:text-white">Schedule</button>
-               </div>
-             </div>
-      
-              
-            </div>
-       </div>
+            </button>
 
- <!-- back to top  -->
- <button    onclick="topFunction()"  id="myBtn" class="  p-2.5   md:m-2 lg:m-2  text-white   bg-pink-400 opacity-75 hover:bg-pink-600 hover:opacity-100 transition-all duration-500 ease-in-out rounded-full  z-50">
-  <span ><i class="fa fa-chevron-up "></i></span>
- </button>
 
- 
-<!--  OUR EVENTS CARDS -->
+          </div>
+      </div>
 
-<section id="Events" class=" flex items-center text-gray-600  mt-1 bg-black dark:bg-white px-6 md:px-12 lg:px-12 ">
-  <div class="container px-5 py-5 mx-auto">
+    </div>
+    </nav>
+    <div class="  text-white mt-24 ">
+      <div class="   flex flex-row-reverse    md:mx-16 lg:justify-between flex-wrap  ">
+
+        <img class=" w-full lg:w-1/2 self-end    lg:-mb-12" src="public/images/creative-team-animate1.svg">
+
+
+
+        <div class="  w-full lg:w-1/2 self-center dark:text-black md:mt-6 p-2 text-center ">
+          <h1 class="orbitron text-5xl  font-bold mb-2">Techyon 2021 </h1>
+          <span class="">Make sure to clear your calender</span><br>
+          <button
+            class="bg-pink-600  px-4 py-2 m-2 rounded-lg  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-black hover:text-white dark:text-white">Schedule</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- back to top  -->
+  <button onclick="topFunction()" id="myBtn"
+    class="  p-2.5   md:m-2 lg:m-2  text-white   bg-pink-400 opacity-75 hover:bg-pink-600 hover:opacity-100 transition-all duration-500 ease-in-out rounded-full  z-50">
+    <span><i class="fa fa-chevron-up "></i></span>
+  </button>
+
+
+  <!--  OUR EVENTS CARDS -->
+
+  <section id="Events" class=" flex items-center text-gray-600  mt-1 bg-black dark:bg-white px-6 md:px-12 lg:px-12 ">
+    <div class="container px-5 py-5 mx-auto">
       <div class="text-center mb-12 pt-24">
-          <h1 class="text-4xl md:text-6xl text-white font-semibold faq dark:text-black">Our Events</h1>
+        <h1 class="text-4xl md:text-5xl text-white font-semibold faq dark:text-black">Our Events</h1>
       </div>
-      <div class="flex flex-row   w-full justify-center flex-wrap"> 
-        <button class=" btn active bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline" onclick="filterObject('all')">ALL</button>
-        <button class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline" onclick="filterObject('MECH')"> MECH</button> 
-        <button class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline" onclick="filterObject('IT')"> IT</button> 
-        <button class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline" onclick="filterObject('ETC')"> ETC</button> 
+      <div class="flex flex-row   w-full justify-center flex-wrap">
+        <button
+          class=" btn active bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          onclick="filterObject('all')">ALL</button>
+        <button
+          class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          onclick="filterObject('MECH')"> MECH</button>
+        <button
+          class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          onclick="filterObject('IT')"> IT</button>
+        <button
+          class="btn  bg-pink-600 text-white items-center  px-4 py-2 m-1 text-sm font-semibold text-left bg-white rounded-sm dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          onclick="filterObject('ETC')"> ETC</button>
       </div>
-     
-      <div class="flex flex-wrap lg:p-24 "  >
-         <!-- COMP  -->
-                                 <!--1 card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/3 cardE COMP   " >
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+
+      <div class="flex flex-wrap lg:p-24 ">
+        <!-- COMP  -->
+        <!--1 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/3 cardE COMP   ">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
               src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
-              
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
+
               <h1 class="text-2xl font-semibold text-center ">Comp</h1>
               <p class="leading-relaxed mb-6">Lorem, ipsum.</p>
-              
-                
+
+
               <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='#' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class=" sm:text-xl lg:text-2xl  text-white" >Know More
-                           </span> </a>
+
+
+                <a target='_blank' href='#'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class=" sm:text-xl lg:text-2xl  text-white">Know More
+                  </span> </a>
 
               </div>
+            </div>
           </div>
-      </div>
-  </div>
-  
+        </div>
 
-<!-- 1E -->      
-          
-          <!-- MECH -->
-      
-                                 <!--1card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/3 cardE MECH" >
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+
+        <!-- 1E -->
+
+        <!-- MECH -->
+
+        <!--1card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/3 cardE MECH">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
               src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
-              
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
+
               <h1 class="text-2xl font-semibold text-center ">mech</h1>
               <p class="leading-relaxed mb-6">Lorem, ipsum.</p>
-              
-                
+
+
               <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='#' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class="  sm:text-xl lg:text-2xl  text-white" >Know More
-                           </span> </a>
+
+
+                <a target='_blank' href='#'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  sm:text-xl lg:text-2xl  text-white">Know More
+                  </span> </a>
 
               </div>
+            </div>
           </div>
-      </div>
-  </div>
-  
+        </div>
 
-<!--1 E -->      
-          <!-- ETC -->
-                    <!--1card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/3 cardE ETC" >
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+
+        <!--1 E -->
+        <!-- ETC -->
+        <!--1card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/3 cardE ETC">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
               src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
-              
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
+
               <h1 class="text-2xl font-semibold text-center ">ETC</h1>
               <p class="leading-relaxed mb-6">Lorem, ipsum.</p>
-              
-                
+
+
               <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='#' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class=" sm:text-xl lg:text-2xl  text-white" >Know More
-                           </span> </a>
+
+
+                <a target='_blank' href='#'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class=" sm:text-xl lg:text-2xl  text-white">Know More
+                  </span> </a>
 
               </div>
-          </div>
-      </div>
-  </div>
-  
-
-<!--1E -->      
-<!-- IT -->
-  <!--1 card-->
-  <div class="p-4 sm:w-1/2 lg:w-1/3 cardE IT" >
-    <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-        <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
-            src="public/images/mockimage.png" alt="image">
-        <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
-            
-            <h1 class="text-2xl font-semibold text-center ">IT</h1>
-            <p class="leading-relaxed mb-6">Lorem, ipsum.</p>
-            
-              
-            <div class="flex flex-wrap ">
-    
-                 
-                    <a  target='_blank'href='#' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                      <span  class=" sm:text-xl lg:text-2xl  text-white" >Know More
-                         </span> </a>
-
             </div>
+          </div>
         </div>
-    </div>
-</div>
 
 
-<!--1E -->      
-        
-        
-          
-          
-          
+        <!--1E -->
+        <!-- IT -->
+        <!--1 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/3 cardE IT">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+              src="public/images/mockimage.png" alt="image">
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 text-white dark:text-black  dark:shadow-2xl ">
+
+              <h1 class="text-2xl font-semibold text-center ">IT</h1>
+              <p class="leading-relaxed mb-6">Lorem, ipsum.</p>
+
+
+              <div class="flex flex-wrap ">
+
+
+                <a target='_blank' href='#'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class=" sm:text-xl lg:text-2xl  text-white">Know More
+                  </span> </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--1E -->
+
+
+
+
+
       </div>
-  </div>
-</section>
-   <!--  ENDDDD   OUR EVENTS CARDS   ENDDD -->
-  
-  
+    </div>
+  </section>
+  <!--  ENDDDD   OUR EVENTS CARDS   ENDDD -->
+
+
   <!-- SPONSORS SECTION  -->
- 
-  <section id= "Sponsors" class=" flex items-center text-gray-600  bg-black dark:bg-white dark:shadow-none">
+
+  <section id="Sponsors" class=" flex items-center text-gray-600  bg-black dark:bg-white dark:shadow-none">
     <div class="container px-5 py-5 ">
-        <div class="text-center ">
-            <h1 class="text-4xl md:text-6xl text-white font-semibold faq  dark:text-black ">Our Sponsors</h1>
+      <div class="text-center ">
+        <h1 class="text-4xl md:text-5xl text-white font-semibold faq  dark:text-black ">Our Sponsors</h1>
+      </div>
+      <div class="flex flex-wrap lg:p-24 dark:shadow-none">
+        <!--first card-->
+        <div class="w-1/4 cardE IT">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center" src="public/images/mockimage.png"
+              alt="image">
+
+          </div>
         </div>
-        <div class="flex flex-wrap lg:p-24 dark:shadow-none">
-            <!--first card-->
-            <div class="w-1/4 cardE IT" >
-              <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                  <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center"
-                      src="public/images/mockimage.png" alt="image">
-                
-              </div>
+
+        <!--1 ENDD-->
+        <!--2 card-->
+        <div class="w-1/4 cardE IT">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center" src="public/images/mockimage.png"
+              alt="image">
+
           </div>
-          
-            <!--1 ENDD-->
-             <!--2 card-->
-             <div class="w-1/4 cardE IT" >
-              <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                  <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center"
-                      src="public/images/mockimage.png" alt="image">
-                
-              </div>
+        </div>
+
+        <!--2 ENDD-->
+        <!--3card-->
+        <div class="w-1/4 cardE IT">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center" src="public/images/mockimage.png"
+              alt="image">
+
           </div>
-          
-            <!--2 ENDD-->
-            <!--3card-->
-            <div class="w-1/4 cardE IT" >
-              <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                  <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center"
-                      src="public/images/mockimage.png" alt="image">
-                
-              </div>
+        </div>
+
+        <!--3 ENDD-->
+        <!--4 card-->
+        <div class="w-1/4 cardE IT">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center" src="public/images/mockimage.png"
+              alt="image">
+
           </div>
-          
-            <!--3 ENDD-->
-            <!--4 card-->
-            <div class="w-1/4 cardE IT" >
-              <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                  <img class="lg:h-48 h-30  w-screen object-cover p-.5  object-center"
-                      src="public/images/mockimage.png" alt="image">
-                
-              </div>
-          </div>
-          
-            <!--4ENDD-->
-          
-          </div>
-          </div>
-          </section>
-            
+        </div>
+
+        <!--4ENDD-->
+
+      </div>
+    </div>
+  </section>
+
   <!-- SPONSORS SECTION END  -->
 
 
 
-           <!--our team-->
+  <!--our team-->
 
-          <section  id="Team" class=" flex items-center text-gray-600 mt-3 bg-black dark:bg-white px-5 md:px-12 lg:px-12">
-            <div class="container px-5 py-5 mx-auto">
-                <div class="text-center mb-12 ">
-                    <h1 class="text-4xl md:text-6xl text-white font-semibold faq dark:text-black">Our Team</h1>
-                </div>
-                <div class="flex flex-wrap -m-4">
-             
-                                 <!--1 card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/4">
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+  <section id="Team" class=" flex items-center text-gray-600 mt-3 bg-black dark:bg-white px-5 md:px-12 lg:px-12">
+    <div class="container px-5 py-5 mx-auto">
+      <div class="text-center mb-12 ">
+        <h1 class="text-4xl md:text-5xl text-white font-semibold faq dark:text-black">Our Team</h1>
+      </div>
+      <div class="flex flex-wrap -m-4">
+
+        <!--1 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/4">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
               src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
-              
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
+
               <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
               <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
-              
-                
+
+
               <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='https://wa.me/919766055610' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class="  text-2xl  text-white" >
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
+
+
+                <a target='_blank' href='https://wa.me/919766055610'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
 
               </div>
-          </div>
-      </div>
-  </div>
-  
-
-<!-- 1E -->      
-  <!--2 card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/4">
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
-              src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
-              
-              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
-              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
-              
-                
-              <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='https://wa.me/919766055610' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class="  text-2xl  text-white" >
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
-
-              </div>
-          </div>
-      </div>
-  </div>
-  
-<!-- 2E --> 
-<!--3 card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/4">
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
-              src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
-              
-              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
-              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
-              
-                
-              <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='https://wa.me/919766055610' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class="  text-2xl  text-white" >
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
-
-              </div>
-          </div>
-      </div>
-  </div>
-  
-<!-- 3E -->
-     <!--4 card-->
-     <div class="p-4 sm:w-1/2 lg:w-1/4">
-      <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
-              src="public/images/mockimage.png" alt="image">
-          <div class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
-              
-              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
-              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
-              
-                
-              <div class="flex flex-wrap ">
-      
-                   
-                      <a  target='_blank'href='https://wa.me/919766055610' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                        <span  class="  text-2xl  text-white" >
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
-
-              </div>
-          </div>
-      </div>
-  </div>
-  
-<!-- 4E -->
-                </div>
             </div>
-        </section>
-        
-           <!-- team ENDDD-->
+          </div>
+        </div>
 
-            <!--Faq -->
-            <section class="text-gray-100 body-font bg-black  sm:pt-12 dark:bg-white dark:text-black">
-                <div class="container px-5 py-24 mx-auto">
-                  <div class="text-center mb-20">
-                    <h1 class="sm:text-3xl text-5xl font-semibold text-center title-font text-gray-100 mb-4 faq ml-4 mr-4 dark:text-black"> FAQs  </h1>
-                  </div>
-                  <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt ullamco </span>
-                      </div>
-                    </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt </span>
-                      </div>
-                    </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint</span>
-                      </div>
-                    </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint</span>
-                      </div>
-                    </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </span>
-                      </div>
-                    </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                        <div class=" rounded flex p-4 h-full items-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </span>
-                        </div>
-                      </div>
-                    <div class="p-2 sm:w-1/2 w-full">
-                      <div class=" rounded flex p-4 h-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
 
-                          <!--contact us  -->
-              <section id="Contactus" class="  flex items-center text-gray-600   mt-1 bg-black dark:bg-white px-6 mb-24 md:px-12 lg:px-12 ">
-                <div class="container px-5 py-24  mx-auto">
-                    <div class="text-center mb-12 ">
-                        <h1 class="text-4xl md:text-6xl text-white font-semibold faq dark:text-black">Contact Us</h1>
-                    </div>
-                    <div class="flex flex-wrap ">
-                        <!--first card-->
-                        <div class="p-1 mb-1 lg:w-2/3 dark:text-black">
-                            <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden  transition duration-500 ease-in-out ">
-                            
-                                <div class="p-6 hover:bg-gray-700 text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200">
-                                    
-                                    <h1 class="text-2xl font-semibold  dark:text-black text-center mb-6">
-                                      TECHYON
-                                    </h1>
-                                    <p class="leading-relaxed mb-4 dark:text-black">Follow us over social media for updates and for any Queries contact official techyon contact number.</p>
-                                    <div class="flex   ">    
-                                  
-                                    <a  target='_blank'href='https://wa.me' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                                      <span  class="  text-2xl  text-white" >
-                                        <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
-                                    
-                                        <a  target='_blank' href="mailto:pccetechyon2k21@gmail.com" class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                                          <span  class="  text-2xl  text-white" >
-                                            <i class="fa fa-envelope" aria-hidden="true"></i> </span> </a>
-                                       
-                                            <a  target='_blank' href="https://www.google.com/maps/place/Padre+Conceicao+College+of+Engineering./@15.3269589,73.9313833,17z/data=!4m12!1m6!3m5!1s0x3bbfb6d4f1f6451d:0x5aa42df33ac41f6!2sPadre+Conceicao+College+of+Engineering.!8m2!3d15.3269589!4d73.933572!3m4!1s0x3bbfb6d4f1f6451d:0x5aa42df33ac41f6!8m2!3d15.3269589!4d73.933572"  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                                              <span  class="  text-2xl  text-white" >
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i> </span> </a>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--1 ENDD-->    
-                        <!--2 card-->
-                        <div class="p-1 w-full lg:w-2/6 dark:text-black ">
-                          <div class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden  transition duration-500 ease-in-out ">
-                          
-                              <div class="p-6 hover:bg-gray-700 text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200">
-                                  
-                                  <h1 class="text-2xl font-semibold  dark:text-black text-center ">
-                                    Dev Team
-                                  </h1><br>
-                                  <p class="leading-relaxed mb-4 dark:text-black text-center">Meet our dev team</p>
-                                  
-                                  <div class="flex ">    
-  
-                                <a href='#' class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
-                                  <span  class="  text-2xl  text-white" >
-                                    <i class="fa fa-desktop" aria-hidden="true"></i> </span> </a>
-                                 
-                                
-                                      
-                                  
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <!--2 ENDD-->    
-                               
-                    </div>
-                </div>
-              </section>
-                <!--footer-->
-               
-              <!--footer-->
-              <footer class="  text-gray-600 bg-gray-900 body-font dark:bg-gray-200 dark:text-black">
-                <div class=" flex flex-row flex-wrap lg:flex-nowrap  py-12 ">
-                  <div class="   my-2 p-8 ">
-                    <h1 class=" title-font font-bold text-white text-2xl dark:text-black text-center">
-                     About Techyon
-                    </h1>
-                    <p class="mt-2 lg:px-24 text-sm text-white dark:text-black ">Techyon is an inter college technical event held annually at PCCE. The word Techyon was derived from Tachyon which is a hypothetical particle with speed more than the speed of the light. It hosts various technical events across all the departments. </p>
-                  </div>
+        <!-- 1E -->
+        <!--2 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/4">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+              src="public/images/mockimage.png" alt="image">
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
 
-                    <div class="   my-2 p-8 lg:w-1/2">
-                      <h2 class=" font-bold text-white text-xl  dark:text-black text-center">Quick Links</h2><br>
-                      <nav class="  list-none flex flex-row space-x-2 justify-center leading-9   ">
-                        <li>
-                          <a href="#Home" class="smooth text-gray-600 hover:text-white  ">Home</a>
-                        </li>
-                        <li>
-                          <a href="#Events" class=" smooth text-gray-600 hover:text-white ">Events</a>
-                        </li>
-                       
-                        <li>
-                          <a  href="#Team" class=" smooth text-gray-600 hover:text-white">Team</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-600 smooth hover:text-white " href="#Contactus">Contact</a>
-                          </li>
-                          <li>
-                            <a href="#Sponsors"class=" smooth text-gray-600 hover:text-white">Sponsors</a>
-                          </li>
-                      </nav>
-                    </div>
-                  </div>
-                
-               
-              </footer>
-      
-      
-    
+              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
+              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
 
-          
-             <script src="public/app.js"></script>
-             <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    </body>
+
+              <div class="flex flex-wrap ">
+
+
+                <a target='_blank' href='https://wa.me/919766055610'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2E -->
+        <!--3 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/4">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+              src="public/images/mockimage.png" alt="image">
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
+
+              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
+              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
+
+
+              <div class="flex flex-wrap ">
+
+
+                <a target='_blank' href='https://wa.me/919766055610'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3E -->
+        <!--4 card-->
+        <div class="p-4 sm:w-1/2 lg:w-1/4">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <img class="lg:h-72 md:h-48 sm:h-48  w-screen object-cover p-.5  object-center"
+              src="public/images/mockimage.png" alt="image">
+            <div
+              class="p-6 hover:bg-gray-700 hover:text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200 dark:hover:text-white dark:hover:bg-gray-600 dark:shadow-2xl ">
+
+              <h1 class="text-2xl font-semibold mb-3">Vishrut Mangoli</h1>
+              <p class="leading-relaxed mb-6">Chief Coordinator <br>Computer Department</p>
+
+
+              <div class="flex flex-wrap ">
+
+
+                <a target='_blank' href='https://wa.me/919766055610'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4E -->
+      </div>
+    </div>
+  </section>
+
+  <!-- team ENDDD-->
+
+  <!--Faq -->
+  <section class="text-gray-100 body-font bg-black  sm:pt-12 dark:bg-white dark:text-black">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="text-center mb-20">
+        <h1
+          class="text-4xl md:text-5xl font-semibold text-center title-font text-gray-100 mb-4 faq ml-4 mr-4 dark:text-black">
+          FAQs </h1>
+      </div>
+      <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco </span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt </span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+              sint</span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+              sint</span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+              sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+            </span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+              sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+            </span>
+          </div>
+        </div>
+        <div class="p-2 sm:w-1/2 w-full">
+          <div class=" rounded flex p-4 h-full items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-600 w-6 h-6 flex-shrink-0 mr-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="title-font font-medium">Amet minim mollit non deserunt ullamco est sit aliqua dolor </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--contact us  -->
+  <section id="Contactus"
+    class="  flex items-center text-gray-600   mt-1 bg-black dark:bg-white px-6 mb-24 md:px-12 lg:px-12 ">
+    <div class="container px-5 py-24  mx-auto">
+      <div class="text-center mb-12 ">
+        <h1 class="text-4xl md:text-5xl text-white font-semibold faq dark:text-black">Contact Us</h1>
+      </div>
+      <div class="flex flex-wrap ">
+        <!--first card-->
+        <div class="p-1 mb-1 lg:w-2/3 dark:text-black">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden  transition duration-500 ease-in-out ">
+
+            <div class="p-6 hover:bg-gray-700 text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200">
+
+              <h1 class="text-2xl font-semibold  dark:text-black text-center mb-6">
+                TECHYON
+              </h1>
+              <p class="leading-relaxed mb-4 dark:text-black">Follow us over social media for updates and for any
+                Queries contact official techyon contact number.</p>
+              <div class="flex   ">
+
+                <a target='_blank' href='https://wa.me'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> </span> </a>
+
+                <a target='_blank' href="mailto:pccetechyon2k21@gmail.com"
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> </span> </a>
+
+                <a target='_blank'
+                  href="https://www.google.com/maps/place/Padre+Conceicao+College+of+Engineering./@15.3269589,73.9313833,17z/data=!4m12!1m6!3m5!1s0x3bbfb6d4f1f6451d:0x5aa42df33ac41f6!2sPadre+Conceicao+College+of+Engineering.!8m2!3d15.3269589!4d73.933572!3m4!1s0x3bbfb6d4f1f6451d:0x5aa42df33ac41f6!8m2!3d15.3269589!4d73.933572"
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> </span> </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--1 ENDD-->
+        <!--2 card-->
+        <div class="p-1 w-full lg:w-2/6 dark:text-black ">
+          <div
+            class="h-full border-gray-200 border-opacity-60 rounded-lg overflow-hidden  transition duration-500 ease-in-out ">
+
+            <div class="p-6 hover:bg-gray-700 text-white transition duration-300 ease-in bg-gray-900 dark:bg-gray-200">
+
+              <h1 class="text-2xl font-semibold  dark:text-black text-center ">
+                Dev Team
+              </h1><br>
+              <p class="leading-relaxed mb-4 dark:text-black text-center">Meet our dev team</p>
+
+              <div class="flex ">
+
+                <a href='#'
+                  class="bg-pink-600 px-4 py-2 flex-1 m-1 rounded-lg  transition duration-500 ease-in-out  hover:bg-black hover:text-white  text-center">
+                  <span class="  text-2xl  text-white">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> </span> </a>
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--2 ENDD-->
+
+      </div>
+    </div>
+  </section>
+  <!--footer-->
+
+  <!--footer-->
+  <footer class="  text-gray-600 bg-gray-900 body-font dark:bg-gray-200 dark:text-black">
+    <div class=" flex flex-row flex-wrap lg:flex-nowrap  py-12 ">
+      <div class="   my-2 p-8 ">
+        <h1 class=" title-font font-bold text-white text-2xl dark:text-black text-center">
+          About Techyon
+        </h1>
+        <p class="mt-2 lg:px-24 text-sm text-white dark:text-black ">Techyon is an inter college technical event held
+          annually at PCCE. The word Techyon was derived from Tachyon which is a hypothetical particle with speed more
+          than the speed of the light. It hosts various technical events across all the departments. </p>
+      </div>
+
+      <div class="   my-2 p-8 lg:w-1/2">
+        <h2 class=" font-bold text-white text-xl  dark:text-black text-center">Quick Links</h2><br>
+        <nav class="  list-none flex flex-row space-x-2 justify-center leading-9   ">
+          <li>
+            <a href="#Home" class="smooth text-gray-600 hover:text-white  ">Home</a>
+          </li>
+          <li>
+            <a href="#Events" class=" smooth text-gray-600 hover:text-white ">Events</a>
+          </li>
+
+          <li>
+            <a href="#Team" class=" smooth text-gray-600 hover:text-white">Team</a>
+          </li>
+          <li>
+            <a class="text-gray-600 smooth hover:text-white " href="#Contactus">Contact</a>
+          </li>
+          <li>
+            <a href="#Sponsors" class=" smooth text-gray-600 hover:text-white">Sponsors</a>
+          </li>
+        </nav>
+      </div>
+    </div>
+
+
+  </footer>
+
+
+
+
+
+  <script src="public/app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
 </html>
