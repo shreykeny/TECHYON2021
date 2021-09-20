@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="">
+
+<head>
+    <style>
+
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/ext-style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body id="Home" class="bg-black dark:bg-white dark:text-black">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <div style="font-family: 'Poppins'; " class="h-88 bg-black dark:bg-white dark:text-black">
+        <div
+            class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full border-b-1 lg:p-4 shadow-2xl">
+
+            <div x-data="{ open: false }"
+                class="flex flex-col max-w-screen-xl px-4  mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="m-2 text-center">
+                    <a href="#"
+                        class="orbitron text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon</a>
+                </div>
+                <div class="p-4 flex flex-row items-center justify-end">
+
+
+                    <div class="flex self-start lg:mx-6 pr-8 ">
+
+                        <div>
+                            <input onclick="myFunction()" type="checkbox" name="" id="toggle" class="checkbox hidden  ">
+                            <label for="toggle"
+                                class="w-12 h-6 bg-pink-200 relative flex items-center justify-between  rounded-full p-1   ">
+                                <span class="text-black"> <i class=" fa-sun-o fa "></i></span>
+                                <div
+                                    class=" absolute 
+                            toggle-dot w-5 h-5  transition duration-300 items-center bg-gray-800 rounded-full transform shadow-md  ">
+
+                                </div>
+                                <span class=""> <i class=" text-yellow-500 fa fa-moon-o"></i> </span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <!-- TOGGLE SWITCH ENDD -->
+                    <button class=" md:hidden rounded-lg focus:outline-none focus:shadow-outline "
+                        @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-white dark:text-black">
+                            <path x-show="!open" fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav :class="{'flex': open, 'hidden': !open}"
+                    class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row dark:bg-white dark:text-black ">
+                    <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold text-white  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-black dark:hover:text-white dark:text-black md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Home">Home</a>
+                    <a class=" smooth text-white px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Events">Events</a>
+                    <a class="smooth text-white px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Sponsors">Sponsors</a>
+
+                    <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Contactus">Contact</a>
+                    <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Team">Results</a>
+                    <a class="smooth text-white px-4 py-2  mt-2 text-sm font-semibold  rounded-lg dark:bg-white dark:hover:bg-pink-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-black md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#Team">Team</a>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button @click="open = !open"
+                            class="flex flex-row bg-pink-600 text-white items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-white rounded-lg dark:bg-pink-500 dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-black md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-gray-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <a href="public/single_registration.html"> Register</a>
+                        </button>
+
+                    </div>
+            </div>
+
+        </div>
+        </nav>
+
+    </div>
+
+
+    <div class="  text-white mt-24 ">
+        <div class="   flex flex-row-reverse    md:mx-16 lg:justify-between flex-wrap  ">
+            <a href="./index.html"> Home </a> / <span id="event-name">Test </span>
+        </div>
+    </div>
+
+
+    <script src="public/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
+</html>
