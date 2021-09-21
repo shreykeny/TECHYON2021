@@ -27,13 +27,13 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <div style="font-family: 'Poppins'; " class="h-88 bg-black dark:bg-white dark:text-black">
         <div
-            class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full border-b-1 lg:p-4 shadow-2xl">
+            class=" fixed z-20 top-0 w-full bg-black  dark:bg-white bg-no-repeat bg-cover image sm:w-full lg:w-full border-b-1 lg:p-4 shadow-lg">
 
             <div x-data="{ open: false }"
                 class="flex flex-col max-w-screen-xl px-4  mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                 <div class="m-2 text-center">
                     <a href="#"
-                        class="orbitron text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon</a>
+                        class=" orbitron text center font-bold  text-white rounded-lg  focus:outline-none focus:shadow-outline text-5xl lg:text-4xl dark:text-black">Techyon</a>
                 </div>
                 <div class="p-4 flex flex-row items-center justify-end">
 
@@ -44,13 +44,13 @@
                             <input onclick="myFunction()" type="checkbox" name="" id="toggle" class="checkbox hidden  ">
                             <label for="toggle"
                                 class="w-12 h-6 bg-pink-200 relative flex items-center justify-between  rounded-full p-1   ">
-                                <span class="text-black"> <i class=" fa-sun-o fa "></i></span>
+                                <span class=""> <i class=" text-yellow-500  fa-sun-o fa "></i></span>
                                 <div
                                     class=" absolute 
-                            toggle-dot w-5 h-5  transition duration-300 items-center bg-gray-800 rounded-full transform shadow-md  ">
+                toggle-dot w-5 h-5  transition duration-300 items-center bg-gray-800 rounded-full transform shadow-md  ">
 
                                 </div>
-                                <span class=""> <i class=" text-yellow-500 fa fa-moon-o"></i> </span>
+                                <span class=""> <i class="text-black fa fa-moon-o"></i> </span>
                             </label>
                         </div>
 
@@ -89,21 +89,28 @@
                             <a href="public/single_registration.html"> Register</a>
                         </button>
 
-                    </div>
+                </nav>
+
             </div>
-
         </div>
-        </nav>
 
+    </div>
+    <div class="text-white mt-24">
+        <div class="flex md:mx-16 lg:justify-between flex-wrap">
+            <div class="w-full lg:w-1/2 self-center dark:text-black md:mt-6 p-2 text-center">
+                <div class="  w-full lg:w-1/2 self-center dark:text-black md:mt-6 p-2 text-center ">
+                    <h1 class="orbitron text-5xl font-bold mb-2">Techyon 2021</h1>
+                    <span class="">PCCE's annual tech fest is here!</span><br>
+                    <button
+                        class="bg-pink-600  px-4 py-2 m-2 rounded-lg  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-black hover:text-white dark:text-white">Schedule</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <div class="  text-white mt-24 ">
-        <div class="   flex flex-row-reverse    md:mx-16 lg:justify-between flex-wrap  ">
-            <a href="./index.html"> Home </a> / <span id="event-name">Test </span>
-        </div>
     </div>
-
+    </div>
 
     <script src="public/app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
